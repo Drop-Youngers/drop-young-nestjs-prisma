@@ -18,8 +18,6 @@ export class AdminGuard implements CanActivate {
                 const user = await this.prisma.user.findUnique({ where: { id: decodedToken.id } })
                 if (!user) return false;
                 switch (user.role) {
-                    case "ARTIST":
-                        return false;
                     case "USER":
                         return false;
                     case "ADMIN":

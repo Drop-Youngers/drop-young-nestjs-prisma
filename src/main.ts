@@ -15,17 +15,11 @@ async function bootstrap() {
   app.useGlobalPipes(new ValidationPipe({}));
 
   const config = new DocumentBuilder()
-    .setTitle('AIC API documentation')
+    .setTitle('NEST JS & PRISMA API documentation')
     .setDescription('The documentation for the AIC API')
     .setVersion('1.0')
     .addBearerAuth()
     .addTag('auth')
-    .addTag('users')
-    .addTag('artists')
-    .addTag('streams')
-    .addTag("faqs")
-    .addTag("contacts")
-    .addTag("health")
     .setContact("Jazzy Bruno" , "https://github.com/jazzybruno" , "jazzybruno45@gmail.com")
     .build();
 

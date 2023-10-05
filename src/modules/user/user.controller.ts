@@ -1,5 +1,5 @@
 import { Body, Controller, Delete, Get, Param, Patch, Post, Put, Query, Req, UseGuards } from '@nestjs/common';
-import { ApiBearerAuth, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
+import { ApiBearerAuth, ApiBody, ApiParam, ApiQuery, ApiTags } from '@nestjs/swagger';
 import { AdminGuard } from 'src/guards/admin.guard';
 import { AuthGuard } from 'src/guards/auth.guard';
 import { AuthRequest } from 'src/types';
@@ -26,6 +26,7 @@ export class UserController {
 
     @Put("update")
     @UseGuards(AuthGuard)
+    @ApiBody({type: UpdateUserDTO})
     async update(@Req() req: AuthRequest, dto: UpdateUserDTO) {
         const user = await this.userService.update(req.user.id, dto);
         return ServerResponse.success("User updated successfully", { user })

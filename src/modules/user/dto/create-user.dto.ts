@@ -16,7 +16,7 @@ export class CreateUserDTO {
     @IsEnum(['ARTIST', 'USER'], { message: "Role must be either 'ARTIST' or 'USER'" })
     @IsNotEmpty({ message: "Role is required" })
     @ApiProperty()
-    readonly role: 'ARTIST' | 'USER';
+    readonly role: 'USER';
 
     @IsNotEmpty()
     @Matches(/^\+250\d{9}$/, {
